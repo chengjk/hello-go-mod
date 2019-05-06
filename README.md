@@ -1,8 +1,11 @@
 # hello-go-mod
 
+## 定义模块
+`$ export GO111MODULE=on` 
+`$ go mod init  [name]`  go mod init github.com/my/repo
 
 
-## 版本 
+## mod version 
 
 git 的release 即是go mod 的版本号
 
@@ -20,3 +23,23 @@ v0.1.0，v1.0.0 测试不加后缀的版本升级。 v2.x.x 为加后缀的版�
 - v2.0.1 go.mod 增加后缀/v2
 
 多版本共存时，需要从大版本上区别,也就是说后缀不同。
+
+## 升级
+`$ go list -u -m all`  查看所有依赖。
+> github.com/chengjk/hello-go-mod v0.1.0 [v1.0.0]
+当前是 v0.1.0 可以升级为 v1.0.0
+
+
+
+
+`go get -u ` 次要版本号升级到最新版。
+> go get -u github.com/chengjk/hello-go-mod 
+从当前的v0.1.0 升级到 v1.0.0
+
+`go get -u=patch` 升级到最新补丁版。
+
+
+
+---
+
+[官方文档](https://github.com/golang/go/wiki/Modules#how-to-use-modules)
